@@ -81,7 +81,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.02;text-wrap:balan
 .glow.g1{width:620px;height:620px;right:-120px;top:40px;background:radial-gradient(circle,rgb(10 91 255/.32),transparent 65%)}
 .glow.g2{width:380px;height:380px;right:320px;bottom:-140px;background:radial-gradient(circle,rgb(0 190 255/.25),transparent 65%)}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(46px,6.6vw,92px);margin:22px 0 22px;letter-spacing:-.045em}
+.hero h1{font-size:clamp(44px,6vw,84px);margin:22px 0 22px;letter-spacing:-.045em}
 .hero h1 .l{display:block}
 .h-pill{display:inline-block;position:relative;width:1.9em;height:.78em;border-radius:99px;background:var(--accent-grad);vertical-align:.02em;box-shadow:inset 0 -4px 0 rgb(0 0 0/.18),inset 0 2px 0 rgb(255 255 255/.35),0 12px 30px -10px var(--accent)}
 .h-pill i{position:absolute;top:50%;width:.56em;height:.56em;border-radius:.16em;background:#fff;display:grid;place-items:center;box-shadow:0 6px 14px -4px rgb(0 0 0/.3),inset 0 -2px 0 #E4E4E7;animation:bob 3.2s ease-in-out infinite}
@@ -239,10 +239,10 @@ section{position:relative}
 .toggle span.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.12)}
 .map{position:relative;height:190px;border-radius:18px;overflow:hidden;background:#E8EBEF;box-shadow:inset 0 0 0 1px var(--line)}
 .map svg{position:absolute;inset:0;width:100%;height:100%}
-.pin{position:absolute;left:58%;top:62%;translate:-50% -100%;display:flex;flex-direction:column;align-items:center}
+.pin{position:absolute;left:60%;top:92%;translate:-50% -100%;display:flex;flex-direction:column;align-items:center}
 .pin b{background:var(--ink);color:#fff;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:10px;white-space:nowrap;box-shadow:0 8px 16px -6px rgb(0 0 0/.4)}
 .pin i{width:16px;height:16px;border-radius:50%;background:var(--accent);border:3px solid #fff;margin-top:6px;box-shadow:0 0 0 8px rgb(10 91 255/.18),0 0 0 18px rgb(10 91 255/.08)}
-.pin2{position:absolute;left:52%;top:26%;translate:-50% -50%;font-size:12px;font-weight:700;color:var(--ink-3);background:#fff;padding:4px 8px;border-radius:8px;box-shadow:0 2px 6px rgb(0 0 0/.12)}
+.pin2{position:absolute;left:30%;top:22%;translate:-50% -50%;font-size:12px;font-weight:700;color:var(--ink-3);background:#fff;padding:4px 8px;border-radius:8px;box-shadow:0 2px 6px rgb(0 0 0/.12)}
 
 /* stats */
 .stats-wrap{position:relative}
@@ -251,7 +251,7 @@ section{position:relative}
 .stat{border-radius:24px;padding:28px 26px;background:var(--sheen),var(--surface-2);box-shadow:0 7.77px 16px rgb(0 0 0/.05),0 2px 3px rgb(0 0 0/.08),inset 0 -6px 0 rgb(0 0 0/.04),inset 0 3px 0 rgb(255 255 255/.8)}
 .stat b{display:block;font-size:clamp(44px,5vw,64px);font-weight:800;letter-spacing:-.05em;line-height:1}
 .stat b em{font-style:normal;color:var(--accent)}
-.stat span{display:block;margin-top:10px;color:var(--ink-3);font-weight:500}
+.stat > span{display:block;margin-top:10px;color:var(--ink-3);font-weight:500}
 @media (max-width:900px){.stats{grid-template-columns:1fr 1fr}}
 
 /* stacking steps */
@@ -339,7 +339,7 @@ footer{padding:60px 0 40px;overflow:hidden}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" data-fade><span class="dot"><svg><use href="#i-drop"/></svg></span>Milano e provincia · da oltre 30 anni</span>
-      <h1><span class="l grad">Il tuo idraulico</span><span class="l grad">a Milano <span class="h-pill" aria-hidden="true"><i><svg style="color:#1DAA61"><use href="#i-wa"/></svg></i><i><svg style="color:#0A5BFF"><use href="#i-cam"/></svg></i><i><svg style="color:#27272A"><use href="#i-wrench"/></svg></i></span></span><span class="l fade">prezzo fisso, prima.</span></h1>
+      <h1><span class="l grad">Il tuo idraulico</span><span class="l grad">a Milano <span class="h-pill" aria-hidden="true"><i><svg style="color:#1DAA61"><use href="#i-wa"/></svg></i><i><svg style="color:#0A5BFF"><use href="#i-cam"/></svg></i><i><svg style="color:#27272A"><use href="#i-wrench"/></svg></i></span></span><span class="l fade">e il prezzo prima.</span></h1>
       <p class="sub" data-fade>Mandaci una foto del guasto su WhatsApp: ti diciamo subito quanto costa. Nessuna sorpresa, lavoro a norma e certificato di conformità.</p>
       <div class="cta" data-fade>
         <a class="btn btn-wa wa-link" href="#"><svg><use href="#i-wa"/></svg>Invia una foto per il preventivo</a>
@@ -404,7 +404,7 @@ footer{padding:60px 0 40px;overflow:hidden}
   <div class="marquee"><div class="track" id="track">
     <span><img src="logos/bosch.svg" alt="" width="26" height="26">Junkers Bosch</span>
     <span>Vaillant</span>
-    <span><img src="logos/samsung.svg" alt="" width="80" height="26" style="width:auto">Samsung</span>
+    <span>Samsung</span>
     <span>Rinnai</span>
     <span>Daikin</span>
     <span><img src="logos/mitsubishi.svg" alt="" width="26" height="26">Mitsubishi</span>
