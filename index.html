@@ -5,306 +5,634 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>IDROTEC GM · Idraulico Milano (demo)</title>
-<meta name="description" content="Proposta di restyling del sito di IDROTEC GM, idraulico a Milano e Rozzano. Demo non ufficiale.">
+<meta name="description" content="Proposta di restyling del sito di IDROTEC GM, idraulico a Milano e Rozzano. Demo non ufficiale realizzata da CarlHost.">
+<meta name="theme-color" content="#EDECEC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0b1b2b; --ink-2:#36506a; --muted:#6b8299;
-  --bg:#f6f8fb; --card:#ffffff; --line:#e3e9f0;
-  --blue:#0a66ff; --blue-2:#0047c2; --cyan:#00c2ff;
-  --wa:#1fb855; --wa-2:#128c3f; --warm:#ff8a3d;
-  --r:20px; --shadow:0 1px 2px rgba(11,27,43,.06),0 12px 32px -12px rgba(11,27,43,.18);
+  --page:#EDECEC; --surface:#F4F4F5; --surface-2:#FAFAFA; --white:#fff;
+  --ink:#09090B; --ink-2:#3F3F46; --ink-3:#52525B; --ink-4:#A1A1AA;
+  --line:rgb(9 9 11/.09);
+  --dark:#18181B; --dark-2:#272727;
+  --accent:#0A5BFF; --accent-2:#0047D6; --accent-soft:#E6EEFF;
+  --accent-grad:linear-gradient(#1D6BFF,#0049E0);
+  --wa:#1DAA61; --wa-2:#14894C;
+  --heading-grad:linear-gradient(132deg,#43484D 11%,#18191B 79%);
+  --ease:cubic-bezier(.2,0,0,1);
+  --sheen:radial-gradient(62.56% 62.56% at 28.14% -10.42%,rgb(255 255 255/.55),rgb(255 255 255/0));
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font:16px/1.6 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+html{-webkit-text-size-adjust:100%}
+body{font:17px/1.6 Urbanist,system-ui,sans-serif;color:var(--ink);background:var(--page);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;line-height:1.08;letter-spacing:-.02em}
-.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-.demo-bar{background:#0b1b2b;color:#cfe0f2;font-size:13px;text-align:center;padding:8px 16px}
-.demo-bar b{color:#fff}
+img,svg{display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.mono{font:500 12px/1 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:99px;background:rgb(255 255 255/.7);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgb(0 0 0/.08),0 0 0 1px var(--line);font-weight:600;font-size:14px;color:var(--ink-2)}
+.eyebrow .dot{width:22px;height:22px;border-radius:50%;background:var(--accent-grad);display:grid;place-items:center;box-shadow:inset 0 1px 0 rgb(255 255 255/.4)}
+.eyebrow .dot svg{width:12px;height:12px;color:#fff}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.02;text-wrap:balance}
+.grad{background:var(--heading-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fade{background:linear-gradient(132deg,#8E8E95,#C9C9CF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h2{font-size:clamp(36px,5vw,64px)}
+.sub{color:var(--ink-3);font-size:clamp(17px,1.6vw,20px);line-height:1.55}
 
-/* nav */
-header{position:sticky;top:0;z-index:20;background:rgba(246,248,251,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;font-family:"Bricolage Grotesque";font-weight:800;font-size:20px}
-.logo-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px -6px var(--blue)}
-.logo small{display:block;font:500 11px Inter;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-.links{display:flex;gap:26px;font-weight:500;font-size:15px;color:var(--ink-2)}
-.links a:hover{color:var(--blue)}
-.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;border-radius:999px;padding:12px 20px;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
-.btn:hover{transform:translateY(-1px)}
-.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 24px -10px var(--wa)}
-.btn-wa:hover{background:var(--wa-2)}
-.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+/* demo bar */
+.demo-bar{position:relative;z-index:60;background:var(--ink);color:#d4d4d8;font-size:13px;text-align:center;padding:9px 16px;line-height:1.4}
+.demo-bar b{color:#fff}.demo-bar a{color:#8fb4ff;font-weight:600}
+
+/* tactile buttons (never move on hover) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:99px;font:600 16px/1 Urbanist,sans-serif;white-space:nowrap;cursor:pointer;transition:box-shadow .16s var(--ease),filter .16s var(--ease),background-color .16s var(--ease)}
 .btn svg{width:19px;height:19px;flex:none}
-@media (max-width:860px){.links{display:none}.nav .btn-ghost{display:none}}
+.btn-dark{color:#fff;background:radial-gradient(62.56% 62.56% at 28.14% -10.42%,rgb(255 255 255/.2),rgb(255 255 255/0)),#272727;
+  box-shadow:inset 0 -3px 0 #080808,inset 0 1px 0 rgb(255 255 255/.3),0 2.77px 2.21px rgb(0 0 0/.12),0 6.65px 5.32px rgb(0 0 0/.13),0 12.52px 10.02px rgb(0 0 0/.133),0 22.34px 17.87px rgb(0 0 0/.14)}
+.btn-dark:hover{filter:brightness(1.25)}
+.btn-light{color:var(--ink);background:radial-gradient(62.56% 62.56% at 28.14% -10.42%,rgb(255 255 255/.6),transparent),#F5F5F5;
+  box-shadow:inset 0 -3px 0 #E2E2E4,inset 0 1px 0 rgb(255 255 255/.9),0 2.77px 2.21px rgb(0 0 0/.1),0 3px 6px rgb(0 0 0/.1)}
+.btn-light:hover{background-color:#fff;box-shadow:inset 0 -3px 0 #E2E2E4,inset 0 1px 0 #fff,0 2.77px 2.21px rgb(0 0 0/.1),0 8px 18px rgb(0 0 0/.12)}
+.btn-wa{color:#fff;background:linear-gradient(#22B86A,#159452);
+  box-shadow:inset 0 -3px 0 rgb(0 0 0/.18),inset 0 1px 0 rgb(255 255 255/.35),0 8px 22px -6px rgb(29 170 97/.6)}
+.btn-wa:hover{box-shadow:inset 0 -3px 0 rgb(0 0 0/.18),inset 0 1px 0 rgb(255 255 255/.35),0 10px 30px -4px rgb(29 170 97/.75);filter:brightness(1.05)}
+.btn:active{filter:brightness(.95)}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
-/* hero */
-.hero{position:relative;overflow:hidden;padding:72px 0 88px}
-.hero:before{content:"";position:absolute;inset:-40% -10% auto auto;width:780px;height:780px;background:radial-gradient(closest-side,rgba(0,194,255,.22),transparent);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative}
-.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;font-size:13px;font-weight:600;color:var(--ink-2)}
-.pill i{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px rgba(31,184,85,.18)}
-.hero h1{font-size:clamp(40px,6vw,72px);font-weight:800;margin:20px 0 18px}
-.hero h1 span{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:19px;color:var(--ink-2);max-width:540px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 28px}
-.trust{display:flex;flex-wrap:wrap;gap:22px;color:var(--ink-2);font-size:14px;font-weight:500}
-.trust div{display:flex;align-items:center;gap:8px}
-.trust svg{width:18px;height:18px;color:var(--blue)}
+/* glass nav */
+.nav{position:fixed;top:52px;left:50%;translate:-50% 0;z-index:50;width:min(1120px,calc(100% - 32px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 18px;border-radius:99px;
+  background:rgb(255 255 255/.55);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);box-shadow:inset 0 1px 0 rgb(255 255 255/.8),0 0 0 1px var(--line),0 10px 30px -12px rgb(0 0 0/.18);transition:top .3s var(--ease)}
+.nav.stuck{top:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent-grad);display:grid;place-items:center;box-shadow:inset 0 -2px 0 rgb(0 0 0/.2),inset 0 1px 0 rgb(255 255 255/.4),0 6px 14px -6px var(--accent)}
+.brand-mark svg{width:17px;height:17px;color:#fff}
+.brand small{font:600 10px/1 Urbanist;letter-spacing:.12em;color:var(--ink-4);display:block;margin-top:3px}
+.nav-links{display:flex;gap:4px}
+.nav-links a{padding:9px 14px;border-radius:99px;font-weight:600;font-size:15px;color:var(--ink-3);transition:background-color .16s,color .16s}
+.nav-links a:hover{background:rgb(9 9 11/.05);color:var(--ink)}
+.nav .btn{padding:11px 18px;font-size:15px}
+@media (max-width:900px){.nav-links,.nav .btn-light{display:none}}
+@media (max-width:420px){.nav .btn-wa span{display:none}.nav .btn-wa{padding:11px 13px}}
 
-/* phone mock */
-.phone{justify-self:center;width:min(340px,100%);background:#0b1b2b;border-radius:38px;padding:12px;box-shadow:0 40px 80px -30px rgba(11,27,43,.55)}
-.screen{background:#ece5dd;border-radius:28px;overflow:hidden}
-.chat-top{background:#075e54;color:#fff;display:flex;gap:10px;align-items:center;padding:14px 16px}
-.chat-top .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;font-weight:800;font-size:13px}
-.chat-top b{display:block;font-size:15px}.chat-top small{opacity:.8;font-size:12px}
-.chat{padding:16px 12px 20px;display:flex;flex-direction:column;gap:8px;min-height:330px}
-.msg{max-width:82%;padding:8px 11px;border-radius:12px;font-size:14px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08);opacity:0;transform:translateY(8px);animation:pop .4s forwards}
-.msg small{display:block;text-align:right;font-size:10px;color:#667781;margin-top:2px}
-.me{align-self:flex-end;background:#d9fdd3}
-.them{align-self:flex-start;background:#fff}
-.photo{width:180px;height:110px;border-radius:8px;margin-bottom:4px;background:linear-gradient(135deg,#9fb3c8,#c9d6e3);display:grid;place-items:center;color:#fff}
-.photo svg{width:48px;height:48px}
-.m1{animation-delay:.3s}.m2{animation-delay:1.1s}.m3{animation-delay:2s}.m4{animation-delay:2.9s}
-@keyframes pop{to{opacity:1;transform:none}}
-@media (max-width:860px){.hero{padding:44px 0 64px}.hero-grid{grid-template-columns:1fr}}
+/* hero frame */
+.hero{margin:12px;border-radius:40px;position:relative;overflow:hidden;min-height:min(900px,calc(100svh - 24px));padding:150px 0 110px;
+  background:radial-gradient(90% 70% at 78% 35%,#fff 0%,#E9E9EC 55%,#D9D9DE 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgb(9 9 11/.09) 1px,transparent 1px);background-size:22px 22px;mask:radial-gradient(70% 60% at 30% 40%,#000,transparent);-webkit-mask:radial-gradient(70% 60% at 30% 40%,#000,transparent);pointer-events:none}
+.glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.glow.g1{width:620px;height:620px;right:-120px;top:40px;background:radial-gradient(circle,rgb(10 91 255/.32),transparent 65%)}
+.glow.g2{width:380px;height:380px;right:320px;bottom:-140px;background:radial-gradient(circle,rgb(0 190 255/.25),transparent 65%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(46px,6.6vw,92px);margin:22px 0 22px;letter-spacing:-.045em}
+.hero h1 .l{display:block}
+.h-pill{display:inline-block;position:relative;width:1.9em;height:.78em;border-radius:99px;background:var(--accent-grad);vertical-align:.02em;box-shadow:inset 0 -4px 0 rgb(0 0 0/.18),inset 0 2px 0 rgb(255 255 255/.35),0 12px 30px -10px var(--accent)}
+.h-pill i{position:absolute;top:50%;width:.56em;height:.56em;border-radius:.16em;background:#fff;display:grid;place-items:center;box-shadow:0 6px 14px -4px rgb(0 0 0/.3),inset 0 -2px 0 #E4E4E7;animation:bob 3.2s ease-in-out infinite}
+.h-pill i svg{width:58%;height:58%}
+.h-pill i:nth-child(1){left:.1em;rotate:-12deg;margin-top:-.28em}
+.h-pill i:nth-child(2){left:.67em;rotate:6deg;margin-top:-.34em;animation-delay:.4s}
+.h-pill i:nth-child(3){left:1.24em;rotate:14deg;margin-top:-.26em;animation-delay:.8s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-.08em)}}
+.hero .sub{max-width:520px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 34px}
+.trust{display:flex;flex-wrap:wrap;gap:10px}
+.trust span{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:99px;background:rgb(255 255 255/.6);box-shadow:0 0 0 1px var(--line);font-weight:600;font-size:14px;color:var(--ink-2)}
+.trust svg{width:15px;height:15px;color:var(--accent)}
 
-/* steps */
-section{padding:84px 0}
-.kicker{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.sec-head{max-width:640px;margin-bottom:44px}
-.sec-head h2{font-size:clamp(30px,4vw,46px);margin:10px 0 12px}
-.sec-head p{color:var(--ink-2);font-size:18px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);position:relative}
-.step .n{font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:#fff;background:var(--ink);width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:18px}
-.step h3{font-size:22px;margin-bottom:8px}
-.step p{color:var(--ink-2)}
-@media (max-width:860px){.steps{grid-template-columns:1fr}}
+/* hero visual */
+.visual{position:relative;height:620px}
+.drop{position:absolute;right:-60px;top:-10px;width:520px;filter:drop-shadow(0 50px 60px rgb(10 60 180/.35))}
+.phone{position:absolute;left:50%;top:50%;translate:-62% -50%;width:300px;border-radius:46px;padding:10px;background:linear-gradient(160deg,#3a3a3f,#0c0c0e 40%,#26262a);box-shadow:inset 0 0 0 1.5px rgb(255 255 255/.12),0 50px 90px -30px rgb(0 0 0/.55),0 20px 40px -20px rgb(0 0 0/.4)}
+.screen{border-radius:37px;overflow:hidden;background:#EFE7DE;position:relative}
+.island{position:absolute;top:9px;left:50%;translate:-50% 0;width:92px;height:26px;border-radius:99px;background:#000;z-index:3}
+.status{display:flex;justify-content:space-between;padding:12px 24px 0;font:600 13px Urbanist;color:#fff;background:#0B5D53;height:40px}
+.chat-head{display:flex;align-items:center;gap:10px;padding:8px 14px 12px;background:#0B5D53;color:#fff}
+.chat-head .av{width:34px;height:34px;border-radius:50%;background:var(--accent-grad);display:grid;place-items:center}
+.chat-head .av svg{width:16px;height:16px;color:#fff}
+.chat-head b{font-size:15px;display:block;line-height:1.15}.chat-head small{font-size:12px;opacity:.8}
+.chat{padding:14px 10px;display:flex;flex-direction:column;gap:7px;height:410px;background-image:radial-gradient(rgb(0 0 0/.035) 1px,transparent 1px);background-size:14px 14px}
+.msg{max-width:84%;padding:7px 10px 5px;border-radius:12px;font-size:13.5px;line-height:1.38;box-shadow:0 1px .5px rgb(0 0 0/.12);opacity:0;translate:0 10px;transition:opacity .45s var(--ease),translate .45s var(--ease)}
+.msg.show{opacity:1;translate:0 0}
+.msg small{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:1px}
+.me{align-self:flex-end;background:#D9FDD3;border-top-right-radius:3px}
+.them{align-self:flex-start;background:#fff;border-top-left-radius:3px}
+.pic{width:170px;height:112px;border-radius:8px;margin-bottom:5px;overflow:hidden;background:linear-gradient(160deg,#cfd6de,#9aa6b3)}
+.typing{align-self:flex-start;background:#fff;border-radius:12px;padding:10px 12px;display:flex;gap:4px;opacity:0;transition:opacity .3s}
+.typing.show{opacity:1}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9aa;animation:ty 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes ty{0%,100%{opacity:.3}50%{opacity:1}}
+.quote{background:#fff;border-radius:10px;padding:9px 10px;margin:2px 0 4px;box-shadow:inset 0 0 0 1px #E8EAED}
+.quote .row{display:flex;justify-content:space-between;font-size:12px;color:#52525B}
+.quote .row b{color:var(--ink)}
+.quote .ok{margin-top:6px;display:inline-flex;gap:5px;align-items:center;font-size:11px;font-weight:700;color:var(--wa-2);background:#E7F7EE;border-radius:99px;padding:3px 8px}
+.float{position:absolute;z-index:4;border-radius:20px;padding:14px 16px;background:rgb(255 255 255/.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 #fff,0 0 0 1px var(--line),0 20px 40px -18px rgb(0 0 0/.3);display:flex;align-items:center;gap:12px;font-weight:600;font-size:14px;animation:bob2 6s ease-in-out infinite}
+.float .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none}
+.float .ic svg{width:19px;height:19px}
+.float small{display:block;font-weight:500;color:var(--ink-3);font-size:12.5px}
+.f1{right:0;top:90px}
+.f2{left:-10px;bottom:70px;animation-delay:-3s}
+@keyframes bob2{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.notch{position:absolute;bottom:0;left:50%;translate:-50% 0;padding:14px 40px 10px;background:var(--page);border-radius:24px 24px 0 0;font-weight:600;font-size:14px;color:var(--ink-3);display:flex;gap:8px;align-items:center}
+.notch::before,.notch::after{content:"";position:absolute;bottom:0;width:24px;height:24px;background:radial-gradient(circle at 0 0,transparent 23.5px,var(--page) 24px)}
+.notch::before{left:-24px}.notch::after{right:-24px;transform:scaleX(-1)}
+.notch svg{width:14px;height:14px;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(3px)}}
+@media (max-width:980px){
+  .hero{padding:130px 0 90px;border-radius:28px;margin:8px}
+  .hero-grid{grid-template-columns:1fr}
+  .visual{height:600px;max-width:460px;width:100%;margin:0 auto}
+  .drop{width:380px;right:-70px;top:10px}
+  .phone{translate:-55% -50%}
+}
+@media (max-width:480px){
+  .visual{height:560px}
+  .phone{width:270px;translate:-50% -50%}
+  .chat{height:370px}
+  .f1{right:-6px;top:30px}.f2{left:-6px;bottom:30px}
+  .float{padding:10px 12px;font-size:13px}.float .ic{width:32px;height:32px}
+  .drop{width:300px;right:-90px}
+}
 
-/* services bento */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;transition:transform .2s,box-shadow .2s}
-.svc:hover{transform:translateY(-3px);box-shadow:0 20px 40px -18px rgba(11,27,43,.3)}
-.svc .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:#eaf2ff;color:var(--blue)}
-.svc .ic svg{width:26px;height:26px}
-.svc h3{font-size:23px}
-.svc p{color:var(--ink-2)}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
-.tags span{font-size:12.5px;font-weight:600;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--ink-2)}
-.s-big{grid-column:span 4;background:linear-gradient(140deg,#0a66ff,#003fae);color:#fff;border:0}
-.s-big p{color:#d7e6ff}.s-big .ic{background:rgba(255,255,255,.16);color:#fff}
-.s-big .tags span{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff}
-.s-2{grid-column:span 2}.s-3{grid-column:span 3}
-.s-big h3{font-size:30px}
-@media (max-width:860px){.bento{grid-template-columns:1fr}.s-big,.s-2,.s-3{grid-column:auto}}
+/* sections */
+section{position:relative}
+.pad{padding:clamp(80px,11vw,150px) 0}
+.head{max-width:720px;margin-bottom:56px}
+.head .sub{margin-top:18px;max-width:560px}
+.kick{color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.kick::before{content:"";width:18px;height:2px;border-radius:2px;background:currentColor}
 
-/* why */
-.why{background:var(--ink);color:#fff;border-radius:32px;padding:64px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.why h2{font-size:clamp(30px,4vw,46px)}
-.why p{color:#b9cbe0;margin-top:14px;font-size:18px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px}
-.stat b{display:block;font-family:"Bricolage Grotesque";font-size:40px;font-weight:800;background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat span{color:#b9cbe0;font-size:14.5px}
-@media (max-width:860px){.why{grid-template-columns:1fr;padding:40px 24px}}
+/* marquee */
+.logos{padding:40px 0 10px}
+.logos p{text-align:center;color:var(--ink-4);font-weight:600;font-size:14px;margin-bottom:26px}
+.marquee{overflow:hidden;mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:64px;width:max-content;animation:mq 40s linear infinite;align-items:center}
+.marquee:hover .track{animation-play-state:paused}
+.track span{display:flex;align-items:center;gap:10px;font-weight:800;font-size:26px;letter-spacing:-.03em;color:#9C9CA4;white-space:nowrap}
+.track img{height:26px;width:auto;opacity:.5}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-/* brands */
-.brands{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-family:"Bricolage Grotesque";font-weight:700;font-size:22px;color:#9aaabb}
+/* scroll fill */
+.fill-text{font-size:clamp(34px,5.4vw,76px);line-height:1.08;letter-spacing:-.045em;font-weight:700;max-width:1050px}
+.fill-text .line{background:linear-gradient(to right,var(--ink) 50%,#C8C8CE 50%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;padding-block:.06em}
+.fill-text em{font-style:normal}
+.no-js .fill-text,.reduce .fill-text{color:var(--ink)}
 
-/* contact */
-.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-.c-main{background:linear-gradient(140deg,#1fb855,#0f8a3c);color:#fff;border-radius:28px;padding:44px}
-.c-main h2{font-size:clamp(30px,4vw,44px);margin-bottom:12px}
-.c-main p{color:#dff7e8;font-size:18px;max-width:440px}
-.c-main .btn{background:#fff;color:#0f8a3c;margin-top:26px;font-size:17px;padding:15px 24px}
-.c-list{display:grid;gap:12px}
-.c-item{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow)}
-.c-item .ic{width:42px;height:42px;border-radius:12px;background:#eaf2ff;color:var(--blue);display:grid;place-items:center;flex:none}
-.c-item .ic svg{width:21px;height:21px}
-.c-item small{display:block;color:var(--muted);font-size:13px}
-.c-item b{font-weight:600;word-break:break-word}
-@media (max-width:860px){.contact{grid-template-columns:1fr}.c-main{padding:32px 24px}}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{border-radius:28px;padding:30px;position:relative;overflow:hidden;background:var(--sheen),var(--surface-2);
+  box-shadow:0 7.77px 16px rgb(0 0 0/.05),0 2px 3px rgb(0 0 0/.08),inset 0 -6px 0 rgb(0 0 0/.04),inset 0 3px 0 rgb(255 255 255/.8);display:flex;flex-direction:column;gap:12px;transition:translate .4s var(--ease),box-shadow .4s var(--ease)}
+.card:hover{translate:0 -4px;box-shadow:0 20px 40px -16px rgb(0 0 0/.18),0 2px 3px rgb(0 0 0/.08),inset 0 -6px 0 rgb(0 0 0/.04),inset 0 3px 0 rgb(255 255 255/.8)}
+.card h3{font-size:clamp(24px,2.3vw,30px)}
+.card p{color:var(--ink-3);font-size:16.5px}
+.card.dark{background:radial-gradient(62.56% 62.56% at 28.14% -10.42%,rgb(255 255 255/.12),transparent),var(--dark);color:#fff;box-shadow:0 7.77px 16px rgb(0 0 0/.12),inset 0 -6px 0 #0d0d0f,inset 0 3px 0 rgb(255 255 255/.08)}
+.card.dark p{color:rgb(255 255 255/.7)}
+.card.blue{background:radial-gradient(70% 70% at 25% -10%,rgb(255 255 255/.3),transparent),linear-gradient(150deg,#1D6BFF,#0039B8);color:#fff;box-shadow:0 20px 40px -18px rgb(10 91 255/.6),inset 0 -6px 0 rgb(0 0 0/.15),inset 0 3px 0 rgb(255 255 255/.2)}
+.card.blue p{color:rgb(255 255 255/.82)}
+.c7{grid-column:span 7}.c5{grid-column:span 5}.c4{grid-column:span 4}.c8{grid-column:span 8}.c6{grid-column:span 6}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font-size:13px;font-weight:600;padding:5px 11px;border-radius:99px;background:rgb(9 9 11/.05);color:var(--ink-2)}
+.dark .tags span,.blue .tags span{background:rgb(255 255 255/.1);color:#fff}
+.mini{margin-top:auto;padding-top:14px}
+.c-ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);box-shadow:inset 0 -2px 0 rgb(10 91 255/.12)}
+.dark .c-ic,.blue .c-ic{background:rgb(255 255 255/.12);color:#fff;box-shadow:none}
+.c-ic svg{width:24px;height:24px}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.c7,.c5,.c4,.c8,.c6{grid-column:auto}}
 
-footer{padding:40px 0 110px;color:var(--muted);font-size:14px;text-align:center}
-footer a{color:var(--blue);font-weight:600}
+/* mini UIs */
+.heater{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.dial{width:150px;height:150px;position:relative}
+.dial svg{width:100%;height:100%}
+.dial b{position:absolute;inset:0;display:grid;place-items:center;font-size:38px;font-weight:700;letter-spacing:-.04em}
+.dial b small{font-size:13px;font-weight:600;color:rgb(255 255 255/.55);letter-spacing:.02em;display:block;text-align:center;margin-top:-6px}
+.seg{display:flex;flex-direction:column;gap:8px}
+.seg div{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:14px;background:rgb(255 255 255/.06);box-shadow:inset 0 0 0 1px rgb(255 255 255/.08);font-weight:600;font-size:14.5px}
+.seg div.on{background:rgb(10 91 255/.25);box-shadow:inset 0 0 0 1px rgb(80 140 255/.6)}
+.seg i{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 2px rgb(255 255 255/.3)}
+.seg .on i{background:var(--accent);box-shadow:inset 0 0 0 4px #fff}
+.ticket{background:#fff;border-radius:18px;padding:16px;box-shadow:0 0 0 1px var(--line),0 12px 24px -14px rgb(0 0 0/.25)}
+.ticket .top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ticket .thumb{width:46px;height:46px;border-radius:10px;background:linear-gradient(150deg,#cfd6de,#8d99a6);display:grid;place-items:center;color:#fff}
+.ticket .thumb svg{width:20px;height:20px}
+.ticket .top b{display:block;font-size:15px}.ticket .top small{color:var(--ink-4);font-size:12.5px;font-weight:600}
+.ticket .line2{display:flex;justify-content:space-between;padding:9px 0;border-top:1px dashed #E4E4E7;font-size:14px;color:var(--ink-3)}
+.ticket .line2 b{color:var(--ink)}
+.stamp{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--wa-2);background:#E7F7EE;border-radius:99px;padding:5px 10px}
+.stamp svg{width:13px;height:13px}
+.remote{display:flex;gap:14px;align-items:stretch}
+.lcd{flex:1;border-radius:18px;padding:16px;background:linear-gradient(160deg,#0f172a,#1e293b);color:#7dd3fc;box-shadow:inset 0 2px 10px rgb(0 0 0/.5),0 0 0 1px rgb(255 255 255/.06)}
+.lcd b{font:600 46px/1 "JetBrains Mono",monospace;letter-spacing:-.04em;color:#e0f2fe;text-shadow:0 0 18px rgb(125 211 252/.6)}
+.lcd .modes{display:flex;gap:6px;margin-top:12px}
+.lcd .modes span{font:500 11px "JetBrains Mono";padding:4px 7px;border-radius:6px;background:rgb(125 211 252/.1);color:#7dd3fc}
+.lcd .modes span.on{background:#7dd3fc;color:#0f172a}
+.keys{display:grid;gap:8px}
+.keys i{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:22px;background:radial-gradient(62% 62% at 28% -10%,rgb(255 255 255/.7),transparent),#F4F4F5;box-shadow:inset 0 -3px 0 #E2E2E4,inset 0 1px 0 #fff,0 2px 3px rgb(0 0 0/.12)}
+.steps-mini{display:flex;flex-direction:column;gap:10px}
+.steps-mini div{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px}
+.steps-mini i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgb(255 255 255/.15);flex:none;font-style:normal;font-size:13px}
+.steps-mini .done i{background:#fff;color:var(--accent)}
+.steps-mini .done i svg{width:14px;height:14px}
+.cart{display:flex;flex-direction:column;gap:8px}
+.cart .item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.cart .item i{width:36px;height:36px;border-radius:10px;background:var(--surface);display:grid;place-items:center;color:var(--ink-3)}
+.cart .item i svg{width:18px;height:18px}
+.cart .item b{font-size:14.5px;display:block}.cart .item small{font-size:12.5px;color:var(--ink-4);font-weight:600}
+.toggle{display:flex;padding:4px;border-radius:99px;background:rgb(9 9 11/.06);font-weight:600;font-size:13.5px}
+.toggle span{flex:1;text-align:center;padding:8px 10px;border-radius:99px;color:var(--ink-3)}
+.toggle span.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.12)}
+.map{position:relative;height:190px;border-radius:18px;overflow:hidden;background:#E8EBEF;box-shadow:inset 0 0 0 1px var(--line)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:58%;top:62%;translate:-50% -100%;display:flex;flex-direction:column;align-items:center}
+.pin b{background:var(--ink);color:#fff;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:10px;white-space:nowrap;box-shadow:0 8px 16px -6px rgb(0 0 0/.4)}
+.pin i{width:16px;height:16px;border-radius:50%;background:var(--accent);border:3px solid #fff;margin-top:6px;box-shadow:0 0 0 8px rgb(10 91 255/.18),0 0 0 18px rgb(10 91 255/.08)}
+.pin2{position:absolute;left:52%;top:26%;translate:-50% -50%;font-size:12px;font-weight:700;color:var(--ink-3);background:#fff;padding:4px 8px;border-radius:8px;box-shadow:0 2px 6px rgb(0 0 0/.12)}
 
-/* floating wa */
-.fab{position:fixed;right:18px;bottom:18px;z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;color:#fff;box-shadow:0 14px 30px -8px rgba(31,184,85,.7)}
+/* stats */
+.stats-wrap{position:relative}
+.big-num{position:absolute;right:-20px;top:-80px;font-size:clamp(180px,26vw,380px);font-weight:800;letter-spacing:-.07em;line-height:.8;color:transparent;-webkit-text-stroke:1.5px #D4D4D8;pointer-events:none;user-select:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.stat{border-radius:24px;padding:28px 26px;background:var(--sheen),var(--surface-2);box-shadow:0 7.77px 16px rgb(0 0 0/.05),0 2px 3px rgb(0 0 0/.08),inset 0 -6px 0 rgb(0 0 0/.04),inset 0 3px 0 rgb(255 255 255/.8)}
+.stat b{display:block;font-size:clamp(44px,5vw,64px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.stat b em{font-style:normal;color:var(--accent)}
+.stat span{display:block;margin-top:10px;color:var(--ink-3);font-weight:500}
+@media (max-width:900px){.stats{grid-template-columns:1fr 1fr}}
+
+/* stacking steps */
+.stack{display:flex;flex-direction:column;gap:22px}
+.stack-card{position:sticky;border-radius:32px;padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,48px);align-items:center;box-shadow:0 -10px 40px -20px rgb(0 0 0/.25),inset 0 3px 0 rgb(255 255 255/.6);transform-origin:50% 0}
+.stack-card:nth-child(1){top:110px;background:var(--sheen),#FAFAFA}
+.stack-card:nth-child(2){top:126px;background:var(--sheen),#F1F1F3}
+.stack-card:nth-child(3){top:142px;background:radial-gradient(62% 62% at 28% -10%,rgb(255 255 255/.12),transparent),var(--dark);color:#fff;box-shadow:0 -10px 40px -20px rgb(0 0 0/.4),inset 0 3px 0 rgb(255 255 255/.08)}
+.stack-card .n{font:500 15px "JetBrains Mono";width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:var(--accent-grad);color:#fff;box-shadow:inset 0 -3px 0 rgb(0 0 0/.2),inset 0 1px 0 rgb(255 255 255/.4),0 10px 20px -8px var(--accent)}
+.stack-card h3{font-size:clamp(28px,3.4vw,44px)}
+.stack-card p{color:var(--ink-3);font-size:18px;margin-top:10px;max-width:520px}
+.stack-card:nth-child(3) p{color:rgb(255 255 255/.7)}
+.stack-card .art{width:150px;height:150px;border-radius:28px;display:grid;place-items:center;background:rgb(9 9 11/.04);box-shadow:inset 0 0 0 1px var(--line)}
+.stack-card:nth-child(3) .art{background:rgb(255 255 255/.06)}
+.stack-card .art svg{width:64px;height:64px;color:var(--accent)}
+.stack-card:nth-child(3) .art svg{color:#7aa6ff}
+@media (max-width:720px){.stack-card{grid-template-columns:1fr;gap:16px}.stack-card .art{display:none}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.faq details{border-radius:20px;background:var(--sheen),var(--surface-2);box-shadow:0 2px 3px rgb(0 0 0/.06),inset 0 -4px 0 rgb(0 0 0/.03),inset 0 2px 0 #fff;margin-bottom:10px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:22px 24px;font-weight:700;font-size:18.5px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgb(9 9 11/.05);transition:rotate .3s var(--ease),background-color .3s}
+.faq summary i svg{width:14px;height:14px}
+.faq details[open] summary i{rotate:45deg;background:var(--accent);color:#fff}
+.faq details p{padding:0 24px 22px;color:var(--ink-3)}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:28px}}
+
+/* final cta */
+.final{margin:12px;border-radius:40px;position:relative;overflow:hidden;padding:clamp(90px,12vw,160px) 20px;text-align:center;color:#fff;
+  background:radial-gradient(60% 80% at 50% 120%,rgb(29 107 255/.9),transparent 70%),radial-gradient(40% 50% at 50% 100%,rgb(0 200 255/.5),transparent),#0A0A0C}
+.final::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgb(255 255 255/.08) 1px,transparent 1px);background-size:22px 22px;mask:radial-gradient(60% 60% at 50% 60%,#000,transparent);-webkit-mask:radial-gradient(60% 60% at 50% 60%,#000,transparent)}
+.final h2{font-size:clamp(42px,6.4vw,92px);letter-spacing:-.05em;position:relative}
+.final h2 span{background:linear-gradient(180deg,#fff 30%,rgb(255 255 255/.45));-webkit-background-clip:text;background-clip:text;color:transparent}
+.final p{color:rgb(255 255 255/.72);font-size:clamp(17px,1.6vw,20px);max-width:560px;margin:22px auto 36px;position:relative}
+.final .cta{justify-content:center;margin:0;position:relative}
+.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1000px;margin:56px auto 0;position:relative;text-align:left}
+.contacts a{border-radius:20px;padding:18px;background:rgb(255 255 255/.06);box-shadow:inset 0 0 0 1px rgb(255 255 255/.1);transition:background-color .2s}
+.contacts a:hover{background:rgb(255 255 255/.11)}
+.contacts small{display:block;color:rgb(255 255 255/.55);font-weight:600;font-size:12.5px;margin-bottom:4px}
+.contacts b{font-weight:700;font-size:15.5px;word-break:break-word}
+@media (max-width:900px){.contacts{grid-template-columns:1fr 1fr}.final{border-radius:28px;margin:8px}}
+@media (max-width:480px){.contacts{grid-template-columns:1fr}}
+
+footer{padding:60px 0 40px;overflow:hidden}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--ink-3);font-weight:500;font-size:15px}
+.foot a{color:var(--accent);font-weight:700}
+.wordmark{font-size:clamp(70px,17vw,250px);font-weight:800;letter-spacing:-.07em;line-height:.8;text-align:center;margin-top:50px;background:linear-gradient(180deg,#D4D4D8,rgb(212 212 216/0) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;white-space:nowrap}
+
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(#22B86A,#159452);box-shadow:inset 0 -3px 0 rgb(0 0 0/.18),inset 0 1px 0 rgb(255 255 255/.35),0 14px 30px -8px rgb(29 170 97/.7);opacity:0;pointer-events:none;transition:opacity .3s,filter .16s}
+.fab.on{opacity:1;pointer-events:auto}
+.fab:hover{filter:brightness(1.08)}
 .fab svg{width:30px;height:30px}
-.fab:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:ring 2s infinite}
-@keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.msg,.reveal{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.msg{opacity:1;translate:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 2.7s6.3 6.6 6.3 11.4a6.3 6.3 0 0 1-12.6 0C5.7 9.3 12 2.7 12 2.7z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.8l1.4-2h6.6l1.4 2h1.8A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.6"/></g></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+</svg>
 
-<div class="demo-bar"><b>Demo di restyling</b>: proposta non ufficiale, realizzata da <a href="https://carlhost.com" style="color:#7fd1ff">CarlHost</a> per IDROTEC GM. I contenuti sono presi dal sito attuale.</div>
+<div class="demo-bar"><b>Demo di restyling</b> · proposta non ufficiale per IDROTEC GM, realizzata da <a href="https://carlhost.com">CarlHost</a>. Contenuti presi dal sito attuale.</div>
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#">
-      <span class="logo-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 2.5s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/></svg></span>
-      <span>IDROTEC GM<small>Idraulico Milano</small></span>
-    </a>
-    <nav class="links">
-      <a href="#come">Come funziona</a>
-      <a href="#servizi">Servizi</a>
-      <a href="#perche">Perché noi</a>
-      <a href="#contatti">Contatti</a>
-    </nav>
-    <div style="display:flex;gap:8px">
-      <a class="btn btn-ghost" href="tel:+390287178391">02 8717 8391</a>
-      <a class="btn btn-wa wa-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2A11.8 11.8 0 0 0 12 .1C5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg>WhatsApp</a>
-    </div>
+<nav class="nav" id="nav">
+  <a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-drop"/></svg></span><span>IDROTEC GM<small>IDRAULICO MILANO</small></span></a>
+  <div class="nav-links"><a href="#servizi">Servizi</a><a href="#come">Come funziona</a><a href="#numeri">Chi siamo</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div>
+  <div style="display:flex;gap:8px">
+    <a class="btn btn-light" href="tel:+390287178391"><svg><use href="#i-phone"/></svg>02 8717 8391</a>
+    <a class="btn btn-wa wa-link" href="#"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a>
   </div>
-</header>
+</nav>
 
-<main>
+<main id="top">
 <section class="hero">
+  <div class="glow g1"></div><div class="glow g2"></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="pill"><i></i>Milano e provincia · da oltre 30 anni</span>
-      <h1>Il tuo idraulico a Milano, con il <span>prezzo prima</span> del lavoro.</h1>
-      <p class="lead">Mandaci una foto del guasto su WhatsApp: ti diciamo subito quanto costa. Prezzo fisso, nessuna sorpresa, lavoro a norma con certificato di conformità.</p>
-      <div class="cta">
-        <a class="btn btn-wa wa-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.8 11.8 0 0 0 12 .1C5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg>Invia una foto per il preventivo</a>
-        <a class="btn btn-ghost" href="#servizi">Vedi i servizi</a>
+      <span class="eyebrow" data-fade><span class="dot"><svg><use href="#i-drop"/></svg></span>Milano e provincia · da oltre 30 anni</span>
+      <h1><span class="l grad">Il tuo idraulico</span><span class="l grad">a Milano <span class="h-pill" aria-hidden="true"><i><svg style="color:#1DAA61"><use href="#i-wa"/></svg></i><i><svg style="color:#0A5BFF"><use href="#i-cam"/></svg></i><i><svg style="color:#27272A"><use href="#i-wrench"/></svg></i></span></span><span class="l fade">prezzo fisso, prima.</span></h1>
+      <p class="sub" data-fade>Mandaci una foto del guasto su WhatsApp: ti diciamo subito quanto costa. Nessuna sorpresa, lavoro a norma e certificato di conformità.</p>
+      <div class="cta" data-fade>
+        <a class="btn btn-wa wa-link" href="#"><svg><use href="#i-wa"/></svg>Invia una foto per il preventivo</a>
+        <a class="btn btn-light" href="#servizi">Scopri i servizi</a>
       </div>
-      <div class="trust">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Abilitati acqua, gas e clima</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Preventivo gratuito</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Negozio a Rozzano</div>
+      <div class="trust" data-fade>
+        <span><svg><use href="#i-check"/></svg>Abilitati acqua, gas e clima</span>
+        <span><svg><use href="#i-check"/></svg>Preventivo gratuito</span>
+        <span><svg><use href="#i-check"/></svg>Negozio a Rozzano</span>
       </div>
     </div>
-    <div class="phone" aria-hidden="true">
-      <div class="screen">
-        <div class="chat-top"><div class="av">GM</div><div><b>IDROTEC GM</b><small>online</small></div></div>
-        <div class="chat">
-          <div class="msg me m1"><div class="photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/></svg></div>Lo scaldabagno perde acqua da sotto 😩<small>09:41</small></div>
-          <div class="msg them m2">Buongiorno! Dalla foto è la valvola di sicurezza. Sostituzione con pezzo e manodopera: prezzo fisso, glielo confermiamo subito.<small>09:44</small></div>
-          <div class="msg me m3">Perfetto, quando potete passare?<small>09:45</small></div>
-          <div class="msg them m4">Domani mattina va bene? 👍<small>09:46</small></div>
+
+    <div class="visual" aria-hidden="true">
+      <!-- glossy water drop render -->
+      <svg class="drop" viewBox="0 0 400 480" data-speed="1">
+        <defs>
+          <radialGradient id="dg" cx="38%" cy="58%" r="70%">
+            <stop offset="0" stop-color="#9CC2FF"/><stop offset=".45" stop-color="#2B74FF"/><stop offset=".8" stop-color="#0838B8"/><stop offset="1" stop-color="#04206E"/>
+          </radialGradient>
+          <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#9CD9FF" stop-opacity=".7"/></linearGradient>
+          <radialGradient id="hl" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <radialGradient id="caust" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7FE3FF" stop-opacity=".9"/><stop offset="1" stop-color="#7FE3FF" stop-opacity="0"/></radialGradient>
+        </defs>
+        <path d="M200 18C200 18 352 190 352 300a152 152 0 0 1-304 0C48 190 200 18 200 18z" fill="url(#dg)"/>
+        <path d="M200 18C200 18 352 190 352 300a152 152 0 0 1-304 0C48 190 200 18 200 18z" fill="none" stroke="url(#rim)" stroke-width="3"/>
+        <ellipse cx="248" cy="390" rx="78" ry="34" fill="url(#caust)" opacity=".55"/>
+        <ellipse cx="140" cy="250" rx="34" ry="62" fill="url(#hl)" transform="rotate(24 140 250)"/>
+        <ellipse cx="124" cy="330" rx="12" ry="20" fill="#fff" opacity=".55" transform="rotate(20 124 330)"/>
+        <path d="M300 300a100 100 0 0 1-70 110" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="356" cy="96" r="20" fill="url(#dg)"/><circle cx="350" cy="90" r="6" fill="#fff" opacity=".8"/>
+        <circle cx="40" cy="150" r="11" fill="url(#dg)"/><circle cx="37" cy="147" r="3.5" fill="#fff" opacity=".8"/>
+      </svg>
+
+      <div class="phone">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="status"><span>9:41</span><span>5G</span></div>
+          <div class="chat-head"><div class="av"><svg><use href="#i-drop"/></svg></div><div><b>IDROTEC GM</b><small>Account aziendale</small></div></div>
+          <div class="chat" id="chat">
+            <div class="msg me"><div class="pic">
+              <svg viewBox="0 0 170 112" width="170" height="112"><defs><linearGradient id="tile" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#cbd3db"/></linearGradient><linearGradient id="boil" x1="0" x2="1"><stop offset="0" stop-color="#f7f7f8"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#d9dde2"/></linearGradient></defs><rect width="170" height="112" fill="url(#tile)"/><g stroke="#b9c2cc" stroke-width=".8"><path d="M0 28h170M0 56h170M0 84h170M42 0v112M85 0v112M128 0v112"/></g><rect x="58" y="10" width="54" height="74" rx="9" fill="url(#boil)" stroke="#aab3bd"/><circle cx="85" cy="34" r="9" fill="#e3e7eb" stroke="#9aa4ae"/><rect x="72" y="58" width="26" height="6" rx="3" fill="#3b82f6" opacity=".6"/><path d="M76 84v12M94 84v12" stroke="#8a949e" stroke-width="4"/><path d="M94 96c0 6 3 9 3 13" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity=".7"/><circle cx="97" cy="110" r="3" fill="#3b82f6" opacity=".6"/></svg>
+            </div>Buongiorno, lo scaldabagno perde acqua da sotto<small>09:41</small></div>
+            <div class="typing"><i></i><i></i><i></i></div>
+            <div class="msg them">Buongiorno! Dalla foto è la valvola di sicurezza. Ecco il preventivo:
+              <div class="quote"><div class="row"><span>Intervento</span><b>Sostituzione valvola</b></div><div class="row"><span>Prezzo</span><b>Fisso, tutto incluso</b></div><span class="ok"><svg width="11" height="11"><use href="#i-check"/></svg>Nessuna sorpresa</span></div>
+              <small>09:44</small></div>
+            <div class="msg me">Perfetto, quando potete passare?<small>09:45</small></div>
+            <div class="msg them">Domani mattina va bene? 👍<small>09:46</small></div>
+          </div>
         </div>
       </div>
+
+      <div class="float f1"><span class="ic" style="background:#E7F7EE;color:#14894C"><svg><use href="#i-wa"/></svg></span><span>Preventivo via foto<small>gratuito, senza impegno</small></span></div>
+      <div class="float f2"><span class="ic" style="background:var(--accent-soft);color:var(--accent)"><svg><use href="#i-shield"/></svg></span><span>Certificato di conformità<small>acqua · gas · clima</small></span></div>
     </div>
+  </div>
+  <a class="notch" href="#marchi">Scorri<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
+</section>
+
+<section class="logos" id="marchi">
+  <p>Vendiamo e installiamo i marchi migliori</p>
+  <div class="marquee"><div class="track" id="track">
+    <span><img src="logos/bosch.svg" alt="" width="26" height="26">Junkers Bosch</span>
+    <span>Vaillant</span>
+    <span><img src="logos/samsung.svg" alt="" width="80" height="26" style="width:auto">Samsung</span>
+    <span>Rinnai</span>
+    <span>Daikin</span>
+    <span><img src="logos/mitsubishi.svg" alt="" width="26" height="26">Mitsubishi</span>
+    <span>Ariston</span>
+    <span>Haier</span>
+    <span>Geberit</span>
+    <span>Mamoli</span>
+    <span>Olimpia Splendid</span>
+  </div></div>
+</section>
+
+<section class="pad">
+  <div class="wrap">
+    <p class="mono kick">Il nostro metodo</p>
+    <p class="fill-text">Mandaci una foto. Ti diciamo subito quanto costa. Prezzo fisso, nessuna sorpresa, lavoro fatto a norma da idraulici abilitati.</p>
   </div>
 </section>
 
-<section id="come" style="padding-top:20px">
+<section class="pad" id="servizi" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Come funziona</span>
-      <h2>Preventivo in tre passi, dal divano.</h2>
-      <p>Niente sopralluoghi inutili per i lavori semplici: basta una foto.</p>
+    <div class="head" data-reveal>
+      <p class="mono kick">Servizi</p>
+      <h2 class="h2"><span class="grad">Vendita, installazione</span> <span class="fade">e riparazione.</span></h2>
+      <p class="sub">Acquisti da noi il prodotto e lo installiamo noi. Un solo interlocutore, dal preventivo al certificato.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal"><div class="n">1</div><h3>Scatta una foto</h3><p>Del rubinetto, dello scaldabagno, della perdita. Più è chiara, più il prezzo è preciso.</p></div>
-      <div class="step reveal"><div class="n">2</div><h3>Inviala su WhatsApp</h3><p>Al 328 952 6050. Rispondiamo con quanto costa l'intervento, prezzo fisso.</p></div>
-      <div class="step reveal"><div class="n">3</div><h3>Interveniamo</h3><p>In tempi brevi, a Milano e provincia, con certificato di conformità dove serve.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="servizi" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Servizi</span>
-      <h2>Vendita, installazione e riparazione.</h2>
-      <p>Acquisti da noi il prodotto e lo installiamo noi. Un solo interlocutore.</p>
-    </div>
-    <div class="bento">
-      <div class="svc s-big reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7c-1.5 2-2 3-2 4a2 2 0 0 0 4 0c0-1-.5-2-2-4z"/><path d="M9 18h6"/></svg></div>
+    <div class="bento" data-reveal>
+      <article class="card dark c7">
+        <span class="c-ic"><svg><use href="#i-drop"/></svg></span>
         <h3>Scaldabagni a gas e boiler elettrici</h3>
-        <p>Scaldabagno rotto? Vendita e installazione di scaldabagni a gas da interno e da esterno e boiler elettrici, con prezzo del prodotto e costo dell'installazione chiari fin da subito.</p>
+        <p>Scaldabagno rotto? Vendita e installazione di modelli a gas da interno e da esterno e boiler elettrici, con prezzo del prodotto e costo dell'installazione chiari da subito.</p>
+        <div class="mini heater">
+          <div class="dial"><svg viewBox="0 0 120 120"><defs><linearGradient id="arc" x1="0" x2="1"><stop offset="0" stop-color="#5B9BFF"/><stop offset="1" stop-color="#FF7A45"/></linearGradient></defs><circle cx="60" cy="60" r="48" fill="none" stroke="rgb(255 255 255/.08)" stroke-width="10" stroke-dasharray="226 302" transform="rotate(135 60 60)" stroke-linecap="round"/><circle cx="60" cy="60" r="48" fill="none" stroke="url(#arc)" stroke-width="10" stroke-dasharray="150 302" transform="rotate(135 60 60)" stroke-linecap="round"/></svg><b><span>48°<small>ACQUA CALDA</small></span></b></div>
+          <div class="seg"><div class="on">Gas da interno <i></i></div><div>Gas da esterno <i></i></div><div>Boiler elettrico <i></i></div></div>
+        </div>
         <div class="tags"><span>Vaillant</span><span>Junkers Bosch</span><span>Rinnai</span><span>Ariston</span></div>
-      </div>
-      <div class="svc s-2 reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
-        <h3>Guasti e perdite</h3>
-        <p>Riparazioni idrauliche di casa in tempi brevi, al costo più conveniente possibile.</p>
-      </div>
-      <div class="svc s-3 reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="9" rx="2"/><path d="M6 10h12M7 18c0-1 1-1 1-2M12 19c0-1 1-1 1-2M17 18c0-1 1-1 1-2"/></svg></div>
+      </article>
+      <article class="card c5">
+        <span class="c-ic"><svg><use href="#i-cam"/></svg></span>
+        <h3>Preventivo con una foto</h3>
+        <p>Una foto su WhatsApp e ti diciamo quanto costa. Gratis e senza impegno.</p>
+        <div class="mini ticket">
+          <div class="top"><span class="thumb"><svg><use href="#i-cam"/></svg></span><span><b>Rubinetto che gocciola</b><small>Foto ricevuta su WhatsApp</small></span></div>
+          <div class="line2"><span>Tipo di prezzo</span><b>Fisso</b></div>
+          <div class="line2"><span>Sopralluogo</span><b>Non serve</b></div>
+          <span class="stamp"><svg><use href="#i-check"/></svg>Preventivo inviato</span>
+        </div>
+      </article>
+      <article class="card c6">
+        <span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="9" rx="2.5"/><path d="M6 10h12M7 18c0-1 1-1 1-2M12 19c0-1 1-1 1-2M17 18c0-1 1-1 1-2"/></svg></span>
         <h3>Climatizzatori</h3>
         <p>Vendita e installazione, con e senza impianto predisposto. Anche modelli senza unità esterna.</p>
+        <div class="mini remote">
+          <div class="lcd"><b>22°</b><div class="modes"><span class="on">COOL</span><span>HEAT</span><span>DRY</span><span>AUTO</span></div></div>
+          <div class="keys"><i>+</i><i>−</i></div>
+        </div>
         <div class="tags"><span>Samsung</span><span>Daikin</span><span>Mitsubishi</span><span>Haier</span><span>Olimpia Splendid</span><span>Tekno Point</span></div>
-      </div>
-      <div class="svc s-3 reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h9a3 3 0 0 1 3 3v8"/><path d="M4 6v6M16 20h4"/><path d="M8 9V5h3"/></svg></div>
-        <h3>Rubinetteria e ricambi</h3>
+      </article>
+      <article class="card blue c6">
+        <span class="c-ic"><svg><use href="#i-wrench"/></svg></span>
+        <h3>Guasti e perdite</h3>
+        <p>Interventi rapidi per i guasti idraulici di casa, al costo più conveniente possibile. Ti diciamo prima quanto costa.</p>
+        <div class="mini steps-mini">
+          <div class="done"><i><svg><use href="#i-check"/></svg></i>Foto del guasto ricevuta</div>
+          <div class="done"><i><svg><use href="#i-check"/></svg></i>Prezzo fisso confermato</div>
+          <div><i>3</i>Intervento in tempi brevi</div>
+        </div>
+      </article>
+      <article class="card c7">
+        <span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <h3>Rubinetteria e ricambi, anche online</h3>
         <p>Rubinetteria e ricambi Mamoli e RDR, ricambi per cassette a incasso. In negozio o online, con ritiro in sede o spedizione.</p>
-        <div class="tags"><span>Geberit</span><span>Pucci</span><span>Oli</span><span>Stir Blitz</span><span>Faismilani</span></div>
-      </div>
+        <div class="mini cart">
+          <div class="item"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h9a3 3 0 0 1 3 3v8M4 6v6M16 20h4M8 9V5h3"/></svg></i><span><b>Rubinetteria Mamoli</b><small>Ricambi originali</small></span></div>
+          <div class="item"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6"/></svg></i><span><b>Ricambi cassette a incasso</b><small>Geberit · Pucci · Oli · Stir Blitz · Faismilani</small></span></div>
+          <div class="toggle"><span class="on">Ritiro in sede</span><span>Spedizione</span></div>
+        </div>
+      </article>
+      <article class="card c5">
+        <span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <h3>Milano e provincia</h3>
+        <p>Negozio in via Como 16 a Rozzano, a 10 minuti di auto dalla vecchia sede di via Meda.</p>
+        <div class="mini map">
+          <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice"><rect width="400" height="190" fill="#E8EBEF"/><path d="M-10 150C80 120 150 160 230 130S360 90 420 110" stroke="#C9E3F8" stroke-width="14" fill="none"/><g stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"><path d="M200 -10 210 200"/><path d="M-10 60 410 80"/><path d="M60 -10 330 200"/><path d="M380 -10 120 200"/></g><g stroke="#fff" stroke-width="2.5" fill="none"><path d="M0 30h400M0 110h400M0 170h400M40 0v190M120 0v190M300 0v190M360 0v190"/></g><circle cx="208" cy="50" r="38" fill="#D5DCE4" opacity=".7"/></svg>
+          <span class="pin2">Milano centro</span>
+          <span class="pin"><b>IDROTEC GM · Rozzano</b><i></i></span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="perche" style="padding-top:20px">
+<section class="pad" id="numeri" style="padding-top:0">
+  <div class="wrap stats-wrap">
+    <div class="big-num" aria-hidden="true">30+</div>
+    <div class="head" data-reveal>
+      <p class="mono kick">Perché sceglierci</p>
+      <h2 class="h2"><span class="grad">Idraulici con passione.</span> <span class="fade">Ci piace fare le cose fatte bene.</span></h2>
+    </div>
+    <div class="stats" data-reveal>
+      <div class="stat"><b><span data-count="30">30</span><em>+</em></b><span>anni di esperienza nel settore</span></div>
+      <div class="stat"><b><span data-count="3">3</span></b><span>abilitazioni: acqua, gas e climatizzazione</span></div>
+      <div class="stat"><b><span data-count="0">0</span><em> €</em></b><span>per il preventivo via foto</span></div>
+      <div class="stat"><b><span data-count="10">10</span><em>'</em></b><span>di auto dalla vecchia sede di via Meda</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="come" style="padding-top:0">
   <div class="wrap">
-    <div class="why reveal">
-      <div>
-        <span class="kicker" style="color:var(--cyan)">Perché sceglierci</span>
-        <h2 style="margin-top:10px">Idraulici con passione. Ci piace fare le cose fatte bene.</h2>
-        <p>Siamo abilitati per interventi su acqua, gas e climatizzazione e rilasciamo il certificato di conformità. Ci trovi in negozio, al telefono o su WhatsApp.</p>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>30+</b><span>anni di esperienza</span></div>
-        <div class="stat"><b>0 €</b><span>per il preventivo via foto</span></div>
-        <div class="stat"><b>3</b><span>abilitazioni: acqua, gas, clima</span></div>
-        <div class="stat"><b>1</b><span>negozio a Rozzano, a 10 minuti da Milano</span></div>
-      </div>
+    <div class="head" data-reveal>
+      <p class="mono kick">Come funziona</p>
+      <h2 class="h2"><span class="grad">Il preventivo in tre passi,</span> <span class="fade">dal divano di casa.</span></h2>
+    </div>
+    <div class="stack">
+      <div class="stack-card"><span class="n">01</span><div><h3>Scatta una foto</h3><p>Del rubinetto, dello scaldabagno o della perdita. Più è chiara, più il prezzo è preciso.</p></div><span class="art"><svg><use href="#i-cam"/></svg></span></div>
+      <div class="stack-card"><span class="n">02</span><div><h3>Inviala su WhatsApp</h3><p>Al 328 952 6050. Ti rispondiamo con il costo dell'intervento: prezzo fisso, senza sorprese.</p></div><span class="art"><svg style="color:#1DAA61"><use href="#i-wa"/></svg></span></div>
+      <div class="stack-card"><span class="n">03</span><div><h3>Interveniamo</h3><p>In tempi brevi, a Milano e provincia, con certificato di conformità dove serve.</p></div><span class="art"><svg><use href="#i-shield"/></svg></span></div>
     </div>
   </div>
 </section>
 
-<section style="padding:20px 0 60px">
-  <div class="wrap brands reveal"><span>Vaillant</span><span>Bosch</span><span>Rinnai</span><span>Ariston</span><span>Daikin</span><span>Samsung</span><span>Geberit</span><span>Mamoli</span></div>
+<section class="pad" id="faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="head" data-reveal style="margin:0">
+      <p class="mono kick">Domande frequenti</p>
+      <h2 class="h2"><span class="grad">Hai un dubbio?</span> <span class="fade">Eccoci.</span></h2>
+      <p class="sub">Non trovi la risposta? Scrivici su WhatsApp, rispondiamo noi.</p>
+    </div>
+    <div class="faq" data-reveal>
+      <details open><summary>Quanto costa il preventivo?<i><svg><use href="#i-plus"/></svg></i></summary><p>Niente. Invia una foto o un messaggio su WhatsApp al 328 952 6050: il preventivo è gratuito e senza impegno.</p></details>
+      <details><summary>Il prezzo può cambiare dopo?<i><svg><use href="#i-plus"/></svg></i></summary><p>No. Ti diciamo prima quanto costa l'intervento, con un prezzo fisso, senza sorprese.</p></details>
+      <details><summary>Rilasciate il certificato di conformità?<i><svg><use href="#i-plus"/></svg></i></summary><p>Sì. Siamo abilitati per interventi su acqua, gas e climatizzazione e rilasciamo il certificato di conformità.</p></details>
+      <details><summary>Posso comprare solo il prodotto?<i><svg><use href="#i-plus"/></svg></i></summary><p>Sì. Scaldabagni, boiler, rubinetteria e ricambi si acquistano anche online, con ritiro in sede o spedizione.</p></details>
+      <details><summary>Dove siete?<i><svg><use href="#i-plus"/></svg></i></summary><p>In via Como 16 a Rozzano (MI). Prima eravamo in via Giuseppe Meda 14 a Milano, a 10 minuti di auto.</p></details>
+    </div>
+  </div>
 </section>
 
-<section id="contatti" style="padding-top:20px">
-  <div class="wrap contact">
-    <div class="c-main reveal">
-      <h2>Quanto costa il tuo intervento?</h2>
-      <p>Invia una foto o un messaggio su WhatsApp: preventivo gratuito e senza impegno.</p>
-      <a class="btn wa-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.8 11.8 0 0 0 12 .1C5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg>Scrivici su WhatsApp</a>
-    </div>
-    <div class="c-list">
-      <a class="c-item reveal" href="https://maps.google.com/?q=Via+Como+16+Rozzano+MI" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-        <span><small>Negozio (ex via Giuseppe Meda 14)</small><b>Via Como 16, Rozzano (MI)</b></span></a>
-      <a class="c-item reveal" href="tel:+390287178391">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
-        <span><small>Telefono negozio</small><b>02 8717 8391</b></span></a>
-      <a class="c-item reveal wa-link" href="#">
-        <span class="ic" style="background:#e5f8ec;color:var(--wa)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.8 11.8 0 0 0 12 .1C5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg></span>
-        <span><small>WhatsApp</small><b>328 952 6050</b></span></a>
-      <a class="c-item reveal" href="mailto:idrotecgmsrl@gmail.com">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
-        <span><small>Email</small><b>idrotecgmsrl@gmail.com</b></span></a>
-    </div>
+<section class="final" id="contatti">
+  <h2 data-reveal><span>Quanto costa il tuo intervento?</span></h2>
+  <p>Invia una foto o un messaggio su WhatsApp. Ti rispondiamo con il prezzo, gratis e senza impegno.</p>
+  <div class="cta">
+    <a class="btn btn-wa wa-link" href="#"><svg><use href="#i-wa"/></svg>Scrivici su WhatsApp</a>
+    <a class="btn btn-light" href="tel:+390287178391"><svg><use href="#i-phone"/></svg>Chiama 02 8717 8391</a>
+  </div>
+  <div class="contacts" data-reveal>
+    <a href="https://maps.google.com/?q=Via+Como+16+Rozzano+MI" target="_blank" rel="noopener"><small>Negozio</small><b>Via Como 16, Rozzano (MI)</b></a>
+    <a href="tel:+390287178391"><small>Telefono</small><b>02 8717 8391</b></a>
+    <a class="wa-link" href="#"><small>WhatsApp</small><b>328 952 6050</b></a>
+    <a href="mailto:idrotecgmsrl@gmail.com"><small>Email</small><b>idrotecgmsrl@gmail.com</b></a>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">© IDROTEC GM S.R.L. · Demo di restyling realizzata da <a href="https://carlhost.com">CarlHost</a>, non è il sito ufficiale.</div>
+  <div class="wrap foot"><span>© IDROTEC GM S.R.L. · Via Como 16, Rozzano (MI)</span><span>Demo di restyling non ufficiale, realizzata da <a href="https://carlhost.com">CarlHost</a></span></div>
+  <div class="wordmark" aria-hidden="true">IDROTEC GM</div>
 </footer>
 
-<a class="fab wa-link" href="#" aria-label="Scrivi su WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2A11.8 11.8 0 0 0 12 .1C5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg></a>
+<a class="fab wa-link" id="fab" href="#" aria-label="Scrivi su WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
 <script>
+// WhatsApp links
 const wa = "https://wa.me/393289526050?text=" + encodeURIComponent("Buongiorno, vorrei un preventivo. Vi invio una foto.");
 document.querySelectorAll(".wa-link").forEach(a => { a.href = wa; a.target = "_blank"; a.rel = "noopener"; });
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// Marquee: duplicate content for a seamless loop
+const track = document.getElementById("track");
+track.innerHTML += track.innerHTML.replace(/<span/g, '<span aria-hidden="true"');
+
+// Nav + floating button
+const nav = document.getElementById("nav"), fab = document.getElementById("fab");
+const onScroll = () => { const y = scrollY; nav.classList.toggle("stuck", y > 30); fab.classList.toggle("on", y > innerHeight * .8); };
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+// Chat sequence in the phone
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const msgs = [...document.querySelectorAll("#chat .msg")], typing = document.querySelector("#chat .typing");
+if (reduce) { msgs.forEach(m => m.classList.add("show")); typing.remove(); }
+else {
+  // the reply bubbles appear after a "typing…" indicator placed right before them
+  const plan = [[0, 1100], ["t1", 1900], [1, 3100], [2, 4300], ["t3", 5000], [3, 6100]];
+  typing.remove();
+  plan.forEach(([what, at]) => setTimeout(() => {
+    if (typeof what === "string") { const next = msgs[+what[1]]; next.parentNode.insertBefore(typing, next); requestAnimationFrame(() => typing.classList.add("show")); }
+    else { typing.classList.remove("show"); typing.remove(); msgs[what].classList.add("show"); }
+  }, at));
+}
+
+if (window.gsap) {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  document.fonts.ready.then(() => {
+    gsap.matchMedia().add({ motion: "(prefers-reduced-motion: no-preference)", desktop: "(min-width:769px)" }, ctx => {
+      const { motion, desktop } = ctx.conditions;
+      if (!motion) { document.documentElement.classList.add("reduce"); return; }
+      if (desktop && window.Lenis) {
+        const lenis = new Lenis({ lerp: .1, smoothWheel: true });
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const t = document.querySelector(a.getAttribute("href")); if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -90 }); } }));
+      }
+      // Hero
+      gsap.from(".hero h1 .l", { y: 40, opacity: 0, duration: 1.1, ease: "expo.out", stagger: .09, delay: .1 });
+      gsap.from(".hero [data-fade]", { y: 24, opacity: 0, duration: .9, ease: "power3.out", stagger: .08, delay: .35 });
+      gsap.from(".phone", { y: 80, rotateX: 14, opacity: 0, transformPerspective: 1200, duration: 1.4, ease: "power3.out", delay: .45 });
+      gsap.from(".drop", { scale: .92, opacity: 0, duration: 1.4, ease: "power3.out", delay: .3 });
+      gsap.from(".float", { y: 30, opacity: 0, duration: 1, ease: "power3.out", stagger: .15, delay: 1 });
+      gsap.to(".drop", { yPercent: -14, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+      // Reveals
+      gsap.utils.toArray("[data-reveal]").forEach(g => gsap.from(g.children, { y: 40, opacity: 0, duration: .9, ease: "power3.out", stagger: .08, scrollTrigger: { trigger: g, start: "top 84%" } }));
+      // Scroll fill, line by line
+      gsap.utils.toArray(".fill-text").forEach(el => SplitText.create(el, { type: "lines", linesClass: "line", autoSplit: true, onSplit: self => {
+        const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 40%", scrub: .5 } });
+        self.lines.forEach(l => tl.to(l, { backgroundPosition: "0% 0", duration: 1 })); return tl; } }));
+      // Counters
+      gsap.utils.toArray("[data-count]").forEach(el => { const end = +el.dataset.count, o = { v: 0 }; if (!end) return;
+        gsap.to(o, { v: end, duration: 2, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%" }, onUpdate: () => el.textContent = Math.round(o.v) }); });
+      gsap.to(".big-num", { yPercent: -25, ease: "none", scrollTrigger: { trigger: "#numeri", start: "top bottom", end: "bottom top", scrub: true } });
+      // Stacking cards dim as the next one arrives
+      gsap.utils.toArray(".stack-card").forEach((c, i, all) => { if (i === all.length - 1) return;
+        gsap.fromTo(c, { scale: 1, filter: "brightness(1)" }, { scale: .95, filter: "brightness(.92)", ease: "none", scrollTrigger: { trigger: all[i + 1], start: "top 85%", end: "top 20%", scrub: true } }); });
+    });
+  });
+} else { document.documentElement.classList.add("no-js"); }
 </script>
 </body>
 </html>
